@@ -1,0 +1,63 @@
+//
+//  ImageCache.swift
+//  KvShoppingInSwifUI
+//
+//  Created by Kevin Taniguchi on 8/16/20.
+//  Copyright © 2020 Kevin Taniguchi. All rights reserved.
+//
+
+import Foundation
+import Combine
+import SwiftUI
+
+class ImageLoader: ObservableObject {
+    static let shared = ImageLoader()
+    
+    deinit {
+        cancellable?.cancel()
+    }
+    
+    @Published var cache: [URL: UIImage] = [:]
+    
+    private var cancellable: AnyCancellable?
+    
+    func load(url: URL) {
+        if cache[url] == nil {
+            cancellable = URLSession.shared.dataTaskPublisher(for: url)
+            .map { UIImage(data: $0.data) }
+            .replaceError(with: UIImage(systemName: "xmark.octagon.fill") )
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] value in
+                print("***********")
+                print(value)
+                print("&&&&&&&&&")
+                self?.cache[url] = value
+            })
+        }
+    }
+}
+
+struct AsyncImage: View {
+    private let url: URL
+    
+    @ObservedObject var loader = ImageLoader.shared
+    
+    init(url: URL) {
+        self.url = url
+        loader.load(url: url)
+    }
+    
+    private var image: some View {
+        Group {
+            if loader.cache[url] != nil {
+                Image(uiImage: loader.cache[url]!).scaledToFit()
+            } else {
+                Image(systemName: "xmark.octagon.fill")
+            }
+        }
+    }
+    
+    var body: some View {
+        image
+    }
+}

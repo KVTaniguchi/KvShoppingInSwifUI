@@ -13,15 +13,15 @@ struct PLPItemView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(systemName: "bag.badge.plus")
-            .resizable()
-            .frame(width: 25.0, height: 25.0)
+            AsyncImage(url: plpVM.imageUrl)
+            .frame(width: 50.0, height: 50.0)
+            .padding()
             VStack {
                 Text(plpVM.name)
                 Text(plpVM.listingPriceDisplay)
                 Text(plpVM.salePriceDisplay)
                 Text(plpVM.shortPromoMessage)
-            }
+            }.padding()
         }
     }
 }

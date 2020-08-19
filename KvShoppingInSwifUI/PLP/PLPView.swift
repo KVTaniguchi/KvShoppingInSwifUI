@@ -8,10 +8,24 @@
 
 import SwiftUI
 
+/// View that shows
+/// smaller product image
+/// price / sale price
+/// name
+/// reviews
+/// promotion message, if any
 struct PLPView: View {
-    // observable model
+    @ObservedObject var task: PLPProductsTask
+    
+    init() {
+        self.task = PLPProductsTask(url: URL(string: "https://run.mocky.io/v3/2ff35b86-da35-4cae-9d91-3160cae55837")!)
+        task.getProducts()
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(task.productViewModels) { product in
+            PLPItemView(plpVM: product)
+        }
     }
 }
 

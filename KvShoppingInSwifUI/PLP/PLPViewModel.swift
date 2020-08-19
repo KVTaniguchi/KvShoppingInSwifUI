@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct PLPViewModel {
+struct PLPViewModel: Identifiable {
+    let id: Int
     let imageUrl: URL
     let name: String
     let listingPriceDisplay: String
