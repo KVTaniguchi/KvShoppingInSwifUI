@@ -25,6 +25,7 @@ class PLPProductsTask: ObservableObject {
     
     @Published var productViewModels: [PLPViewModel] = []
     @Published var error: Error?
+    @Published var finished = false
     
     init(url: URL) {
         self.url = url
@@ -42,6 +43,7 @@ class PLPProductsTask: ObservableObject {
         .eraseToAnyPublisher()
         .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: { [weak self] completion in
+            self?.finished = true
             switch completion {
             case .finished:
                 break

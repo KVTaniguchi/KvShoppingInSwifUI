@@ -14,14 +14,15 @@ struct PLPItemView: View {
     var body: some View {
         HStack(alignment: .top) {
             AsyncImage(url: plpVM.imageUrl)
-            .frame(width: 50.0, height: 50.0)
+            .frame(width: 80, height: 120, alignment: .leading)
             .padding()
             VStack {
                 Text(plpVM.name)
                 Text(plpVM.listingPriceDisplay)
                 Text(plpVM.salePriceDisplay)
                 Text(plpVM.shortPromoMessage)
-            }.padding()
+            }
+            .padding()
         }
     }
 }
