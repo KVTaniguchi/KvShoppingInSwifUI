@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+// any discounts / payments to apply
+// cart total
+// delivery / shipping address
+
 struct Checkout: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

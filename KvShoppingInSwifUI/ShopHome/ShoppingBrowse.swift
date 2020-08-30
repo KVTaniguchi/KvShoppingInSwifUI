@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+// grid of random image views
+// of random size
+// clicking any loads the plp with the same data
+
 struct ShoppingBrowse: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

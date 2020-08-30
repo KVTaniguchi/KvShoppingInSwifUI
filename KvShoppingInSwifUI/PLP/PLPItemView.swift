@@ -16,7 +16,7 @@ struct PLPItemView: View {
             AsyncImage(url: plpVM.imageUrl)
             .frame(width: 80, height: 120, alignment: .leading)
             .padding()
-            VStack {
+            VStack(alignment: .leading) {
                 Text(plpVM.name)
                 Text(plpVM.listingPriceDisplay)
                 Text(plpVM.salePriceDisplay)
