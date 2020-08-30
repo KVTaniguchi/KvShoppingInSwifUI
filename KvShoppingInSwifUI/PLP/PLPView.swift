@@ -26,11 +26,7 @@ struct PLPView: View {
     
     var body: some View {
         List(task.productViewModels) { product in
-            PLPItemView(plpVM: product).onAppear {
-                if self.task.finished {
-                    self.imageLoader.load(url: product.imageUrl)
-                }
-            }
+            PLPItemView(plpVM: product)
         }
     }
 }

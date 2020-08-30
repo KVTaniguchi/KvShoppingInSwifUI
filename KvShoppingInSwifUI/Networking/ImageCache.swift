@@ -37,6 +37,7 @@ struct AsyncImage: View {
     
     init(url: URL) {
         self.url = url
+        loader.load(url: url)
     }
     
     private var image: some View {
