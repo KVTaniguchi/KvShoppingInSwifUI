@@ -32,6 +32,7 @@ class ImageLoader: ObservableObject {
 
 struct AsyncImage: View {
     private let url: URL
+    @State private var opacity: Double = 0
     
     @ObservedObject var loader = ImageLoader.shared
     
@@ -46,6 +47,9 @@ struct AsyncImage: View {
                 Image(uiImage: loader.cache[url]!)
                 .resizable()
                 .scaledToFit()
+                .onAppear {
+                    self.opacity = 1
+                }
             } else {
                 Image(systemName: "xmark.octagon.fill")
             }
@@ -54,5 +58,7 @@ struct AsyncImage: View {
     
     var body: some View {
         image
+        .opacity(opacity)
+        .animation(.easeInOut(duration: 0.25))
     }
 }
