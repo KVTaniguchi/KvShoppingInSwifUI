@@ -14,21 +14,18 @@ class ImageLoader: ObservableObject {
     static let shared = ImageLoader()
     
     @Published var cache: [URL: UIImage] = [:]
-    
-    private var cancellable: AnyCancellable?
+    var cancelables = Set<AnyCancellable>()
     
     func load(url: URL) {
         if cache[url] == nil {
-            // be able to load multiple tasks at once
-            // zip them together
-            
-            cancellable = URLSession.shared.dataTaskPublisher(for: url)
+            _ = URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
             .replaceError(with: UIImage(systemName: "xmark.octagon.fill") )
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] value in
                 self?.cache[url] = value
             })
+            .store(in: &cancelables)
         }
     }
 }

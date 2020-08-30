@@ -22,10 +22,6 @@ struct PLPView: View {
     init() {
         self.task = PLPProductsTask(url: URL(string: "https://run.mocky.io/v3/99de5e9a-ec4d-4bf2-9f92-4589e7225f2a")!)
         self.task.getProducts()
-        
-        self.onReceive(self.task.$finished) { finished in
-            
-        }
     }
     
     var body: some View {
