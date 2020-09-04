@@ -14,12 +14,25 @@ import SwiftUI
 
 struct ShoppingBrowse: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                NavigationLink(
+                    destination: PLPView()
+                ) {
+                    Text("Thing")
+                }
+                NavigationLink(
+                    destination: PLPView()
+                ) {
+                    Text("more")
+                }
+            }.navigationBarTitle("shopping", displayMode: .automatic)
+        }
     }
 }
 
-struct ShoppingBrowse_Previews: PreviewProvider {
-    static var previews: some View {
-        ShoppingBrowse()
-    }
-}
+//struct ShoppingBrowse_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShoppingBrowse()
+//    }
+//}

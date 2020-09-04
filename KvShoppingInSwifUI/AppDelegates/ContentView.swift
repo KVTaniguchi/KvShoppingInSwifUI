@@ -9,8 +9,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var activeTab: Int = 0
+    
     var body: some View {
-        PLPView()
+        TabView(selection: $activeTab) {
+            ShoppingBrowse()
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Shop")
+            }.tag(0)
+            Account()
+            .tabItem {
+                Image(systemName: "perspective")
+                Text("Account")
+            }.tag(1)
+        }
+    }
+}
+
+extension ContentView {
+    var activeTabTitle: String {
+        switch activeTab {
+        case 0:
+            return "shop"
+        case 1:
+            return "account"
+        default:
+            return ""
+        }
     }
 }
 

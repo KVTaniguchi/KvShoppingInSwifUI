@@ -26,8 +26,10 @@ struct PLPView: View {
     
     var body: some View {
         List(task.productViewModels) { product in
-            PLPItemView(plpVM: product)
-        }
+            NavigationLink(destination: PDPView()) {
+                PLPItemView(plpVM: product)
+            }
+        }.navigationBarTitle("products list")
     }
 }
 
