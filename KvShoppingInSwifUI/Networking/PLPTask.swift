@@ -57,8 +57,8 @@ class PLPProductsTask: ObservableObject {
                     NSDecimalNumber(decimal: listingRaw))
                 let saleRaw = Decimal(
                     integerLiteral: product.salePrice) / 100
-                let salePriceString = PLPProductsTask.formatter.string(
-                    from: NSDecimalNumber(decimal: saleRaw))
+                let salePriceString = product.onSale ? PLPProductsTask.formatter.string(
+                from: NSDecimalNumber(decimal: saleRaw)) : nil
                 return PLPViewModel(
                     id: product.id,
                     imageUrl: product.image,
