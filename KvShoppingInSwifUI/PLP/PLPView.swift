@@ -26,15 +26,9 @@ struct PLPView: View {
     
     var body: some View {
         List(task.productViewModels) { product in
-            NavigationLink(destination: PDPView()) {
+            NavigationLink(destination: PDPView(plpModel: product)) {
                 PLPItemView(plpVM: product)
             }
         }.navigationBarTitle("products list")
     }
 }
-
-//struct ProductListingPage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductListingPage()
-//    }
-//}

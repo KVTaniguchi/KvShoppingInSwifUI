@@ -9,15 +9,25 @@
 import SwiftUI
 
 struct PDPView: View {
-    // init with product id
+    let plpModel: PLPViewModel
+    @ObservedObject var task: PDPProductTask
+    @ObservedObject var imageLoader = ImageLoader.shared
     
-    init(identifier: String) {
-//        https://run.mocky.io/v3/9a6331f9-8ed6-453f-bbff-250b431bf141
+    init(plpModel: PLPViewModel) {
+        self.plpModel = plpModel
+        self.task = PDPProductTask(url: URL(string: "https://run.mocky.io/v3/9a6331f9-8ed6-453f-bbff-250b431bf141")!)
+        self.task.getProducts()
     }
     
-    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ImageCarousel()
+            ProductPlacard()
+            QuantityPicker()
+            ColorSelector()
+            SizeSelector()
+            AddToCartView()
+        }.navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
         
         // images carousel
         // title
