@@ -46,7 +46,7 @@ struct PDPProduct: Decodable {
     
     let variations: [Variation]
     
-    struct Variation: Decodable {
+    struct Variation: Decodable, Identifiable {
         let size: String
         let id: Int
         let color: String

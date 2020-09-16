@@ -21,8 +21,8 @@ struct PDPView: View {
     
     var body: some View {
         List {
-            ImageCarousel()
-            ProductPlacard()
+            ImageCarousel(product: task.product)
+            ProductPlacard(product: task.product)
             QuantityPicker()
             ColorSelector()
             SizeSelector()

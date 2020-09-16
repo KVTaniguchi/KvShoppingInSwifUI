@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct ProductPlacard: View {
-    var body: some View {
-        Text("Product placard")
+    let product: PDPProduct?
+    
+    init(product: PDPProduct?) {
+        self.product = product
     }
-}
-
-struct ProductPlacard_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductPlacard()
+    
+    var body: some View {
+        VStack {
+            Text(product?.name ?? "...")
+            Text(product?.listingPriceString ?? "...")
+        }
     }
 }
