@@ -16,14 +16,31 @@ class ImageLoader: ObservableObject {
     @Published var cache: [URL: UIImage] = [:]
     var cancelables = Set<AnyCancellable>()
     
+    private var needsLoad = Set<URL>()
+    private var isLoading = false
+    
     func load(url: URL) {
+        
+        needsLoad.insert(url)
+        
         if cache[url] == nil {
+            if isLoading {
+                return
+            }
+            
+            isLoading = true
+            
             _ = URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
             .replaceError(with: UIImage(systemName: "xmark.octagon.fill") )
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] value in
+                self?.isLoading = false
                 self?.cache[url] = value
+                self?.needsLoad.remove(url)
+                if let nextUrl = self?.needsLoad.first {
+                    self?.load(url: nextUrl)
+                }
             })
             .store(in: &cancelables)
         }
@@ -38,7 +55,10 @@ struct AsyncImage: View {
     
     init(url: URL) {
         self.url = url
-        loader.load(url: url)
+        
+        if loader.cache[url] == nil {
+            loader.load(url: url)
+        }
     }
     
     private var image: some View {

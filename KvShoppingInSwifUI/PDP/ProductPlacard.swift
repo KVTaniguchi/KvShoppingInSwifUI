@@ -16,7 +16,7 @@ struct ProductPlacard: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(product?.name ?? "...")
             Text(product?.listingPriceString ?? "...")
         }
