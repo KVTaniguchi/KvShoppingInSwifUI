@@ -9,13 +9,11 @@
 import SwiftUI
 
 struct AddToCartView: View {
+    var quantity: Int
+    
     var body: some View {
-        Text("Add to cart")
-    }
-}
-
-struct AddToCartView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddToCartView()
+        Button("Add To Cart") {
+            print(quantity)
+        }
     }
 }

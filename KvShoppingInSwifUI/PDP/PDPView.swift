@@ -12,6 +12,7 @@ struct PDPView: View {
     let plpModel: PLPViewModel
     @ObservedObject var task: PDPProductTask
     @ObservedObject var imageLoader = ImageLoader()
+    @State var quantity = 0
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel
@@ -23,10 +24,10 @@ struct PDPView: View {
         List {
             ImageCarousel(product: task.product)
             ProductPlacard(product: task.product)
-            QuantityPicker()
+            QuantityPicker(quantity: $quantity)
             ColorSelector()
             SizeSelector()
-            AddToCartView()
+            AddToCartView(quantity: quantity)
         }.navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
         
         // images carousel
