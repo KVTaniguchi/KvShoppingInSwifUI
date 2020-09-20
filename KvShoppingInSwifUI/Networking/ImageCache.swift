@@ -20,35 +20,29 @@ class ImageLoader: ObservableObject {
     static let shared = ImageLoader()
     
     @Published var cache: [URL: UIImage] = [:]
-    @Published var things: [UIImage] = []
     var cancelables = Set<AnyCancellable>()
     
     func load(url: URL) {
+        cache[url] = UIImage(systemName: "pencil")!
         
-        if cache[url] == nil {
-            print(url.absoluteString)
-            _ = URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { data, response in
-                guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode,
-                      let img = UIImage(data: data)
-                else {
-                    throw ImageError.badImage
-                }
-                
-                return img
+        _ = URLSession.shared.dataTaskPublisher(for: url)
+        .tryMap { data, response in
+            guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode,
+                  let img = UIImage(data: data)
+            else {
+                throw ImageError.badImage
             }
-            .replaceError(with: UIImage(systemName: "pencil")! )
-            .eraseToAnyPublisher()
-            .collect()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] value in
-//                var cache = cache
-                // TODO figure out way to not get self here
-//                cache[url] = value
-                self?.things = value
-            })
-            .store(in: &cancelables)
+            
+            return img
         }
+        .replaceError(with: UIImage(systemName: "pencil")! )
+        .eraseToAnyPublisher()
+        .collect()
+        .receive(on: DispatchQueue.main)
+        .sink(receiveValue: { [weak self, url] value in
+            self?.cache[url] = value.first
+        })
+        .store(in: &cancelables)
     }
 }
 
@@ -68,7 +62,7 @@ struct AsyncImage: View {
     
     private var image: some View {
         Group {
-            if let image = loader.things.randomElement() {
+            if let image = loader.cache[url] {
                 Image(uiImage: image)
                 .resizable()
                 .scaledToFit()
