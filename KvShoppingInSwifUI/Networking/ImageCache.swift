@@ -36,7 +36,6 @@ class ImageLoader: ObservableObject {
             return img
         }
         .replaceError(with: UIImage(systemName: "pencil")! )
-        .eraseToAnyPublisher()
         .receive(on: DispatchQueue.main)
         .sink(receiveValue: { [weak self, url] value in
             self?.cache[url] = value
