@@ -24,6 +24,7 @@ struct PDPView: View {
         List {
             ImageCarousel(product: task.product)
             ProductPlacard(product: task.product)
+            ProductDescription(product: task.product)
             QuantityPicker(quantity: $quantity)
             ColorSelector()
             SizeSelector()
