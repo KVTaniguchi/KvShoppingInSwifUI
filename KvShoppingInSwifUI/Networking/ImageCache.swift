@@ -10,37 +10,42 @@ import Foundation
 import Combine
 import SwiftUI
 
+//  unable to determine interface type without an established connection
+
+enum ImageError: Error {
+    case badImage
+}
+
 class ImageLoader: ObservableObject {
     static let shared = ImageLoader()
     
     @Published var cache: [URL: UIImage] = [:]
+    @Published var things: [UIImage] = []
     var cancelables = Set<AnyCancellable>()
-    
-    private var needsLoad = Set<URL>()
-    private var isLoading = false
     
     func load(url: URL) {
         
-        needsLoad.insert(url)
-        
         if cache[url] == nil {
-            if isLoading {
-                return
-            }
-            
-            isLoading = true
-            
+            print(url.absoluteString)
             _ = URLSession.shared.dataTaskPublisher(for: url)
-            .map { UIImage(data: $0.data) }
-            .replaceError(with: UIImage(systemName: "xmark.octagon.fill") )
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode,
+                      let img = UIImage(data: data)
+                else {
+                    throw ImageError.badImage
+                }
+                
+                return img
+            }
+            .replaceError(with: UIImage(systemName: "pencil")! )
+            .eraseToAnyPublisher()
+            .collect()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] value in
-                self?.isLoading = false
-                self?.cache[url] = value
-                self?.needsLoad.remove(url)
-                if let nextUrl = self?.needsLoad.first {
-                    self?.load(url: nextUrl)
-                }
+//                var cache = cache
+                // TODO figure out way to not get self here
+//                cache[url] = value
+                self?.things = value
             })
             .store(in: &cancelables)
         }
@@ -63,8 +68,8 @@ struct AsyncImage: View {
     
     private var image: some View {
         Group {
-            if loader.cache[url] != nil {
-                Image(uiImage: loader.cache[url]!)
+            if let image = loader.things.randomElement() {
+                Image(uiImage: image)
                 .resizable()
                 .scaledToFit()
                 .onAppear {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ImageCarousel: View {
     let urls: [URL]
-    let imageLoading = ImageLoader.shared
+    let imageLoading = ImageLoader()
     
     init(product: PDPProduct?) {
         self.urls = product?.images

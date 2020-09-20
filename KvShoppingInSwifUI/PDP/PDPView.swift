@@ -11,7 +11,7 @@ import SwiftUI
 struct PDPView: View {
     let plpModel: PLPViewModel
     @ObservedObject var task: PDPProductTask
-    @ObservedObject var imageLoader = ImageLoader.shared
+    @ObservedObject var imageLoader = ImageLoader()
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel

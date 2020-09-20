@@ -17,7 +17,6 @@ import SwiftUI
 /// promotion message, if any
 struct PLPView: View {
     @ObservedObject var task: PLPProductsTask
-    @ObservedObject var imageLoader = ImageLoader.shared
     
     init() {
         self.task = PLPProductsTask(url: URL(string: "https://run.mocky.io/v3/99de5e9a-ec4d-4bf2-9f92-4589e7225f2a")!)

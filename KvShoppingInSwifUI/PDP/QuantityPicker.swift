@@ -9,8 +9,14 @@
 import SwiftUI
 
 struct QuantityPicker: View {
+    @State var selectedQuantity = 0
+    
     var body: some View {
-        Text("Quantity Picker")
+        Picker(selection: $selectedQuantity, label: Text("Please choose a quantity")) {
+            ForEach(1 ..< 11) {
+               Text("\($0)")
+            }
+        }
     }
 }
 
