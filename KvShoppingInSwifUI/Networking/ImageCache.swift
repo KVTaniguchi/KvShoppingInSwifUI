@@ -25,7 +25,7 @@ class ImageLoader: ObservableObject {
     func load(url: URL) {
         cache[url] = UIImage(systemName: "pencil")!
         
-        _ = URLSession.shared.dataTaskPublisher(for: url)
+        URLSession.shared.dataTaskPublisher(for: url)
         .tryMap { data, response in
             guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode,
                   let img = UIImage(data: data)
