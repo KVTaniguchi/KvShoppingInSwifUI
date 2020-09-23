@@ -10,7 +10,13 @@ import SwiftUI
 
 struct Account: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Email")
+            Text("Shipping Address")
+            Text("Payment")
+            Text("App Settings")
+            Text("Face Id")
+        }
     }
 }
 
