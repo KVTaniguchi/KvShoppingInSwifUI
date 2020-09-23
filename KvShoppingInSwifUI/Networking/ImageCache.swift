@@ -43,39 +43,3 @@ class ImageLoader: ObservableObject {
         .store(in: &cancelables)
     }
 }
-
-struct AsyncImage: View {
-    private let url: URL
-    @State private var opacity: Double = 0
-    
-    @ObservedObject var loader = ImageLoader.shared
-    
-    init(url: URL) {
-        self.url = url
-        
-        if loader.cache[url] == nil {
-            loader.load(url: url)
-        }
-    }
-    
-    private var image: some View {
-        Group {
-            if let image = loader.cache[url] {
-                Image(uiImage: image)
-                .resizable()
-                .scaledToFit()
-                .onAppear {
-                    self.opacity = 1
-                }
-            } else {
-                Image(systemName: "xmark.octagon.fill")
-            }
-        }
-    }
-    
-    var body: some View {
-        image
-        .opacity(opacity)
-        .animation(.easeInOut(duration: 0.25))
-    }
-}

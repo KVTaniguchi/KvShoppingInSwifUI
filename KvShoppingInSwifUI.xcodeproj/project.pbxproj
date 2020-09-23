@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD0B08E32517F96400F9B3A9 /* ProductDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0B08E22517F96300F9B3A9 /* ProductDescription.swift */; };
 		BD0B08E72519BE8400F9B3A9 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0B08E62519BE8400F9B3A9 /* CartModel.swift */; };
+		BD527718251B02D5002CE217 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD527717251B02D5002CE217 /* AsyncImage.swift */; };
 		BD7AF9D324E9B5BB00450FC1 /* PLPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7AF9D224E9B5BB00450FC1 /* PLPTask.swift */; };
 		BD7AF9D724EA0DB400450FC1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7AF9D624EA0DB400450FC1 /* ImageCache.swift */; };
 		BD7AF9DB24FB6C0600450FC1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7AF9DA24FB6C0600450FC1 /* Account.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		BD0B08E22517F96300F9B3A9 /* ProductDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescription.swift; sourceTree = "<group>"; };
 		BD0B08E62519BE8400F9B3A9 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		BD527717251B02D5002CE217 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		BD7AF9D224E9B5BB00450FC1 /* PLPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPTask.swift; sourceTree = "<group>"; };
 		BD7AF9D624EA0DB400450FC1 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		BD7AF9DA24FB6C0600450FC1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD527716251B0186002CE217 /* Common Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD527717251B02D5002CE217 /* AsyncImage.swift */,
+			);
+			path = "Common Views";
+			sourceTree = "<group>";
+		};
 		BD7AF9D124E9B5AB00450FC1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 		BDB4CD7824D66D370018A141 /* KvShoppingInSwifUI */ = {
 			isa = PBXGroup;
 			children = (
+				BD527716251B0186002CE217 /* Common Views */,
 				BD7AF9D124E9B5AB00450FC1 /* Networking */,
 				BDA1E2F724E0EB2E005EB4ED /* Account */,
 				BDA1E2EF24E0DF26005EB4ED /* CartCheckout */,
@@ -340,6 +351,7 @@
 				BDA1E2F524E0EA4F005EB4ED /* PLPProduct.swift in Sources */,
 				BD7AF9D324E9B5BB00450FC1 /* PLPTask.swift in Sources */,
 				BDE8CA35250DAECE000F21DA /* PDPProduct.swift in Sources */,
+				BD527718251B02D5002CE217 /* AsyncImage.swift in Sources */,
 				BDE8CA2D250DABB2000F21DA /* ColorSelector.swift in Sources */,
 				BDA1E2F124E0E418005EB4ED /* PLPViewModel.swift in Sources */,
 				BDB4CD7C24D66D370018A141 /* SceneDelegate.swift in Sources */,

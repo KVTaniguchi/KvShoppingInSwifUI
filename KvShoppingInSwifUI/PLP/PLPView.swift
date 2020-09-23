@@ -20,7 +20,6 @@ struct PLPView: View {
     
     init() {
         self.task = PLPProductsTask(url: URL(string: "https://run.mocky.io/v3/99de5e9a-ec4d-4bf2-9f92-4589e7225f2a")!)
-        self.task.getProducts()
     }
     
     var body: some View {
@@ -28,7 +27,11 @@ struct PLPView: View {
             NavigationLink(destination: PDPView(plpModel: product)) {
                 PLPItemView(plpVM: product)
             }
-        }.navigationBarTitle("products list")
+        }
+        .onAppear(perform: {
+            self.task.getProducts()
+        })
+        .navigationBarTitle("products list")
         .navigationBarItems(trailing:
             Button(
                 action: {
