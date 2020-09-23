@@ -43,9 +43,3 @@ struct ShoppingBrowse: View {
         }
     }
 }
-
-//struct ShoppingBrowse_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ShoppingBrowse()
-//    }
-//}

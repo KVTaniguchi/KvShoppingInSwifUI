@@ -12,14 +12,20 @@ import SwiftUI
 // a summary section with cart total
 
 struct Cart: View {
+    @State var showingCheckout = false
+    
     var body: some View {
-        VStack {
+        List {
             Text("Items header")
             Text("Item 1")
             Text("Items 2")
             Text("Shipping to")
             Text("Cost summary")
-            Text("Checkout button")
+            Button("Checkout") {
+                self.showingCheckout.toggle()
+            }
+        }.sheet(isPresented: $showingCheckout) {
+            Checkout()
         }
     }
 }
