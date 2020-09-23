@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct CartModel: Codable {
+struct CartModel: Decodable {
     let id: String
     
-    struct Item {
+    struct Item: Decodable {
         let title: String
         
     }
