@@ -27,6 +27,14 @@ struct ShoppingBrowse: View {
                     Text("more")
                 }
             }.navigationBarTitle("shopping", displayMode: .automatic)
+            .navigationBarItems(trailing:
+                Button(
+                    action: {
+                        print("Carr pressed...")
+                    }) {
+                        Image(systemName: "cart").imageScale(.large)
+                    }
+            )
         }
     }
 }

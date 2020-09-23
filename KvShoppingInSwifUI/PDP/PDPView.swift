@@ -30,5 +30,13 @@ struct PDPView: View {
             SizeSelector()
             AddToCartView(quantity: quantity)
         }.navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(
+                action: {
+                    print("Carr pressed...")
+                }) {
+                    Image(systemName: "cart").imageScale(.large)
+                }
+        )
     }
 }

@@ -14,7 +14,10 @@ import SwiftUI
 
 struct Checkout: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Order summary")
+            Text("Place order button")
+        }
     }
 }
 

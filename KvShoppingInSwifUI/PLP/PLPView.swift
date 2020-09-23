@@ -29,5 +29,13 @@ struct PLPView: View {
                 PLPItemView(plpVM: product)
             }
         }.navigationBarTitle("products list")
+        .navigationBarItems(trailing:
+            Button(
+                action: {
+                    print("Carr pressed...")
+                }) {
+                    Image(systemName: "cart").imageScale(.large)
+                }
+        )
     }
 }

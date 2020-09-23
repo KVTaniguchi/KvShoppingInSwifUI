@@ -13,9 +13,14 @@ import SwiftUI
 
 struct Cart: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        
-        // cart items
+        VStack {
+            Text("Items header")
+            Text("Item 1")
+            Text("Items 2")
+            Text("Shipping to")
+            Text("Cost summary")
+            Text("Checkout button")
+        }
     }
 }
 
