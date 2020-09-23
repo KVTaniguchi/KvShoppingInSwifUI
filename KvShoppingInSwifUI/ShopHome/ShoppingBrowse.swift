@@ -13,6 +13,8 @@ import SwiftUI
 // clicking any loads the plp with the same data
 
 struct ShoppingBrowse: View {
+    @State var showingCart = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -30,11 +32,14 @@ struct ShoppingBrowse: View {
             .navigationBarItems(trailing:
                 Button(
                     action: {
-                        print("Carr pressed...")
+                        self.showingCart.toggle()
                     }) {
                         Image(systemName: "cart").imageScale(.large)
                     }
             )
+            .sheet(isPresented: $showingCart) {
+                Cart()
+            }
         }
     }
 }

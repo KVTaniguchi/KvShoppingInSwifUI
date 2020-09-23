@@ -13,6 +13,7 @@ struct PDPView: View {
     @ObservedObject var task: PDPProductTask
     @ObservedObject var imageLoader = ImageLoader()
     @State var quantity = 0
+    @State var showingCart = false
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel
@@ -33,10 +34,13 @@ struct PDPView: View {
         .navigationBarItems(trailing:
             Button(
                 action: {
-                    print("Carr pressed...")
+                    self.showingCart.toggle()
                 }) {
                     Image(systemName: "cart").imageScale(.large)
                 }
         )
+        .sheet(isPresented: $showingCart) {
+            Cart()
+        }
     }
 }

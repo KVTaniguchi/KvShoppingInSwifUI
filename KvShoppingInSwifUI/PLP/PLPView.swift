@@ -17,6 +17,7 @@ import SwiftUI
 /// promotion message, if any
 struct PLPView: View {
     @ObservedObject var task: PLPProductsTask
+    @State var showingCart = false
     
     init() {
         self.task = PLPProductsTask(url: URL(string: "https://run.mocky.io/v3/99de5e9a-ec4d-4bf2-9f92-4589e7225f2a")!)
@@ -35,10 +36,13 @@ struct PLPView: View {
         .navigationBarItems(trailing:
             Button(
                 action: {
-                    print("Carr pressed...")
+                    self.showingCart.toggle()
                 }) {
                     Image(systemName: "cart").imageScale(.large)
                 }
         )
+        .sheet(isPresented: $showingCart) {
+            Cart()
+        }
     }
 }
