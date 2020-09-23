@@ -30,15 +30,5 @@ struct PDPView: View {
             SizeSelector()
             AddToCartView(quantity: quantity)
         }.navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
-        
-        // images carousel
-        // title
-        // price
-        // quantity picker
-        // color selector
-        // size selector
-        // ratings and reviews
-        // expandable description cell
-        // add to cart button
     }
 }
