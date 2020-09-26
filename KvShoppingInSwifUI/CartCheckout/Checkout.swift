@@ -14,8 +14,11 @@ import SwiftUI
 
 struct Checkout: View {
     var body: some View {
-        VStack {
+        List {
             Text("Order summary")
+            Text("Fulfillment summary")
+            Text("Payment Summary")
+            Text("Cost Summary")
             Text("Place order button")
         }
     }

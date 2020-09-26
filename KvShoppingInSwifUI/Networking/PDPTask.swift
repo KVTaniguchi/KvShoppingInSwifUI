@@ -28,6 +28,7 @@ class PDPProductTask: ObservableObject {
     }
     
     func getProducts() {
+        guard !finished else { return }
         self.cancellable = URLSession.shared.dataTaskPublisher(for: url)
         .tryMap { output in
             guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
