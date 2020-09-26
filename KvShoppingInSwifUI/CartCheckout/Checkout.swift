@@ -24,8 +24,3 @@ struct Checkout: View {
     }
 }
 
-struct Checkout_Previews: PreviewProvider {
-    static var previews: some View {
-        Checkout()
-    }
-}

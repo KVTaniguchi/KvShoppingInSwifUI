@@ -13,9 +13,3 @@ struct SizeSelector: View {
         Text("Size selector")
     }
 }
-
-struct SizeSelector_Previews: PreviewProvider {
-    static var previews: some View {
-        SizeSelector()
-    }
-}

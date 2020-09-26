@@ -29,12 +29,3 @@ struct Cart: View {
         }
     }
 }
-
-struct Cart_Previews: PreviewProvider {
-    static var previews: some View {
-        Cart()
-    }
-}
-
-
-// cart item view

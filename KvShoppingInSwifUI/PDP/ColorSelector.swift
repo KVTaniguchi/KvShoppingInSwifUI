@@ -13,9 +13,3 @@ struct ColorSelector: View {
         Text("Color selector")
     }
 }
-
-struct ColorSelector_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorSelector()
-    }
-}
