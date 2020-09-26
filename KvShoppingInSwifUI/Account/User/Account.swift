@@ -10,18 +10,12 @@ import SwiftUI
 
 struct Account: View {
     var body: some View {
-        VStack {
+        List {
             Text("Email")
             Text("Shipping Address")
             Text("Payment")
             Text("App Settings")
             Text("Face Id")
         }
-    }
-}
-
-struct Account_Previews: PreviewProvider {
-    static var previews: some View {
-        Account()
     }
 }

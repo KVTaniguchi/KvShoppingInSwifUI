@@ -23,6 +23,9 @@ class ImageLoader: ObservableObject {
     var cancelables = Set<AnyCancellable>()
     
     func load(url: URL) {
+        // we first set a default image
+        // else the sink will crash when trying
+        // to access the hash
         cache[url] = UIImage(systemName: "pencil")!
         
         URLSession.shared.dataTaskPublisher(for: url)
