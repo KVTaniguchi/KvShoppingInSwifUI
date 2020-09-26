@@ -21,7 +21,7 @@ struct AsyncImage: View {
         }
     }
     
-    private var image: some View {
+    var body: some View {
         Group {
             if let image = loader.cache[url] {
                 Image(uiImage: image)
@@ -31,9 +31,5 @@ struct AsyncImage: View {
                 Image(systemName: "pencil")
             }
         }
-    }
-    
-    var body: some View {
-        image
     }
 }
