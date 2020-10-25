@@ -17,6 +17,15 @@ struct Account: View {
     init() {
         _email = State(initialValue: "")
         _address = State(initialValue: CNPostalAddress())
+        
+        // when do we get user info?
+        // on app launch?  most shopping apps would...
+        // when do we auth?  how do we auth?
+        // what levels of auth do we need?
+        // most shopping apps will deal with $
+        // and will need some kind of tiered auth
+        
+        
     }
     
     var body: some View {
