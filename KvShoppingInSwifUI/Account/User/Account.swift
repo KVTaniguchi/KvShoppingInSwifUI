@@ -7,15 +7,44 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct Account: View {
+    
+    @State var email: String
+    @State var address: CNPostalAddress
+    
+    init() {
+        _email = State(initialValue: "")
+        _address = State(initialValue: CNPostalAddress())
+    }
+    
     var body: some View {
-        List {
-            Text("Email")
-            Text("Shipping Address")
-            Text("Payment")
-            Text("App Settings")
-            Text("Face Id")
+        Form {
+            Section {
+                Text("Email")
+            }
+            
+            Section {
+                Text("Shipping Address")
+            }
+            
+            Section {
+                Text("Payment")
+            }
+            
+            Section {
+                Text("App Settings")
+            }
+            
+            Section {
+                Text("Face Id")
+            }
         }
     }
+}
+
+struct UserProfile {
+    let email: String
+    let address: CNPostalAddress
 }

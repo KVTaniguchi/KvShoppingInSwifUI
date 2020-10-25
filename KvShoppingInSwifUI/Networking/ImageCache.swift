@@ -10,8 +10,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-//  unable to determine interface type without an established connection
-
 enum ImageError: Error {
     case badImage
 }
