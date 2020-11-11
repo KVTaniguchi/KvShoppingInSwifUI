@@ -42,7 +42,7 @@ struct PDPView: View {
                 }
         )
         .sheet(isPresented: $showingCart) {
-            Cart()
+            CartView()
         }
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 // a list of plp like views with quantity
 // a summary section with cart total
 
-struct Cart: View {
+struct CartView: View {
     @State var showingCheckout = false
     
     var body: some View {

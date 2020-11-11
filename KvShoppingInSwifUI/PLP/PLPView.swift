@@ -38,7 +38,7 @@ struct PLPView: View {
                 }
         )
         .sheet(isPresented: $showingCart) {
-            Cart()
+            CartView()
         }
     }
 }

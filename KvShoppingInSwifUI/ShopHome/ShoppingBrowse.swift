@@ -38,7 +38,7 @@ struct ShoppingBrowse: View {
                     }
             )
             .sheet(isPresented: $showingCart) {
-                Cart()
+                CartView()
             }
         }
     }
