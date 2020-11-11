@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD0B08E32517F96400F9B3A9 /* ProductDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0B08E22517F96300F9B3A9 /* ProductDescription.swift */; };
 		BD0B08E72519BE8400F9B3A9 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0B08E62519BE8400F9B3A9 /* CartModel.swift */; };
+		BD4CA2F5255BA8D6007AE3E5 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4CA2F4255BA8D6007AE3E5 /* Cart.swift */; };
 		BD527718251B02D5002CE217 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD527717251B02D5002CE217 /* AsyncImage.swift */; };
 		BD7AF9D324E9B5BB00450FC1 /* PLPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7AF9D224E9B5BB00450FC1 /* PLPTask.swift */; };
 		BD7AF9D724EA0DB400450FC1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7AF9D624EA0DB400450FC1 /* ImageCache.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		BD0B08E22517F96300F9B3A9 /* ProductDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescription.swift; sourceTree = "<group>"; };
 		BD0B08E62519BE8400F9B3A9 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		BD4CA2F4255BA8D6007AE3E5 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		BD527717251B02D5002CE217 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		BD7AF9D224E9B5BB00450FC1 /* PLPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPTask.swift; sourceTree = "<group>"; };
 		BD7AF9D624EA0DB400450FC1 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				BDB4CDA524D66DE20018A141 /* CartView.swift */,
 				BDB4CDA724D66DED0018A141 /* Checkout.swift */,
 				BD0B08E62519BE8400F9B3A9 /* CartModel.swift */,
+				BD4CA2F4255BA8D6007AE3E5 /* Cart.swift */,
 			);
 			path = CartCheckout;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				BDB4CD7A24D66D370018A141 /* AppMain.swift in Sources */,
 				BDA1E2F324E0E5EA005EB4ED /* PLPItemView.swift in Sources */,
 				BDA1E2F524E0EA4F005EB4ED /* PLPProduct.swift in Sources */,
+				BD4CA2F5255BA8D6007AE3E5 /* Cart.swift in Sources */,
 				BD7AF9D324E9B5BB00450FC1 /* PLPTask.swift in Sources */,
 				BDE8CA35250DAECE000F21DA /* PDPProduct.swift in Sources */,
 				BD527718251B02D5002CE217 /* AsyncImage.swift in Sources */,
