@@ -17,7 +17,6 @@ struct PDPView: View {
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel
-        self.task.getProducts()
     }
     
     var body: some View {
@@ -29,7 +28,11 @@ struct PDPView: View {
             ColorSelector()
             SizeSelector()
             AddToCartView(quantity: quantity)
-        }.navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
+        }
+        .onAppear(perform: {
+            self.task.getProducts()
+        })
+        .navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
         .navigationBarItems(trailing:
             Button(
                 action: {

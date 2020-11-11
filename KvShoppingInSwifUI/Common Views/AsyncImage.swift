@@ -15,10 +15,6 @@ struct AsyncImage: View {
     
     init(url: URL) {
         self.url = url
-        
-        if loader.cache[url] == nil {
-            loader.load(url: url)
-        }
     }
     
     var body: some View {
@@ -29,6 +25,10 @@ struct AsyncImage: View {
                 .scaledToFit()
             } else {
                 Image(systemName: "pencil")
+            }
+        }.onAppear {
+            if loader.cache[url] == nil {
+                loader.load(url: url)
             }
         }
     }
