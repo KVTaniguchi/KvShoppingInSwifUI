@@ -29,7 +29,7 @@ class Authorize: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationCon
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        
+        handleError(error)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
@@ -59,6 +59,10 @@ class Authorize: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationCon
     }
     
     func receiveUserId(_ userId: String) {
+        
+    }
+    
+    func handleError(_ error: Error) {
         
     }
 }
