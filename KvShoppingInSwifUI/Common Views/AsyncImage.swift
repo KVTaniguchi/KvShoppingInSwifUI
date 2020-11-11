@@ -11,7 +11,7 @@ import SwiftUI
 struct AsyncImage: View {
     private let url: URL
     @State private var opacity: Double = 0
-    @ObservedObject var loader = ImageLoader.shared
+    @StateObject var loader = ImageLoader.shared
     
     init(url: URL) {
         self.url = url
