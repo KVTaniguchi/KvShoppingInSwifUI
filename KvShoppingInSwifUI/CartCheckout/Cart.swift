@@ -17,5 +17,5 @@ import Combine
 // UI is the input
 
 final class Cart: ObservableObject {
-    
+    var cart: CartModel?
 }

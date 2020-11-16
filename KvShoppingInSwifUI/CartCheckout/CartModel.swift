@@ -13,12 +13,12 @@ struct CartModel: Codable, Identifiable {
     
     // items grouped by fulfillment method
     let items: [CartItem]
+
+    // no order summary - that is calculated at checkout
     
-    // applied discounts
-    let discounts: [Discount]
-    
-    // order summary
-    let summary: OrderSummary
+    // this should be a fast and cheap call to get a list of products
+    // in the users cart
+    // e-com takes place in checkout
 }
 
 // shipping - 3rd party, 1st party, in garage, locker
@@ -31,9 +31,11 @@ struct Fulfillment: Codable, Identifiable {
 struct CartItem: Codable {
     let title: String
     var quantity: Int
+    let imageURL: URL?
     
     // handle all money in int penny
     let costPerUnit: Int
+    let originalCostPerUnit: Int?
     
     var availableDiscounts: [Discount]
 }
@@ -42,6 +44,7 @@ struct CartItem: Codable {
 struct Discount: Codable {
     let title: String
     let value: String
+    let isApplied: Bool
 }
 
 struct OrderSummary: Codable {
