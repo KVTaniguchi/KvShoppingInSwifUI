@@ -8,6 +8,7 @@
 
 import Foundation
 
+// create at top level and add to main stack
 final class UserResource: ObservableObject {
     var user: User = User()
     

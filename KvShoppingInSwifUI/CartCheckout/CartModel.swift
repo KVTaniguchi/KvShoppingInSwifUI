@@ -8,6 +8,9 @@
 
 import Foundation
 
+// local vs service
+// do we even have an app without a network? not reallly
+
 struct CartModel: Codable, Identifiable {
     let id: String
     

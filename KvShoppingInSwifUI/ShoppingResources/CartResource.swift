@@ -8,10 +8,12 @@
 
 import Foundation
 
+// create at top level and add to main stack
 final class CartResource: ObservableObject {
     // local cart vs service cart
     // local cart has a time to live
-    // once time to live expires it is 
+    // once time to live expires it is
+    var cart: CartModel = CartModel()
     
     private var fetchedCart: CartModel?
     
