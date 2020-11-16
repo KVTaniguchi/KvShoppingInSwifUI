@@ -11,13 +11,14 @@ import Foundation
 struct CartModel: Codable, Identifiable {
     let id: String
     
-    
     // items grouped by fulfillment method
     let items: [CartItem]
     
-    
     // applied discounts
+    let discounts: [Discount]
+    
     // order summary
+    let summary: OrderSummary
 }
 
 // shipping - 3rd party, 1st party, in garage, locker
@@ -37,9 +38,15 @@ struct CartItem: Codable {
     var availableDiscounts: [Discount]
 }
 
-
 // display only, actual discount is applied in service
 struct Discount: Codable {
     let title: String
     let value: String
+}
+
+struct OrderSummary: Codable {
+    let finalTotal: Int
+    let tax: Int
+    let discountTotal: Int
+    let itemTotal: Int
 }

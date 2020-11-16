@@ -1,0 +1,27 @@
+{
+  "firstName": "firstName",
+  "lastName": "lastName",
+  "email": "email@thing.com",
+  "phone": "1112223333",
+  "loyalty": {
+    "isLoyalty": true,
+    "points": 10
+  },
+  "addresses": [
+    {
+      "line1": "1111 main street",
+      "line2": "c/0 person 1",
+      "city": "anyCity",
+      "zipCode": "12345",
+      "state": "AB"
+    },
+    {
+      "line1": "2222 main street",
+      "line2": "c/0 person 2",
+      "city": "anyTown",
+      "zipCode": "54321",
+      "state": "CD"
+    }
+  ],
+  "id": "45f3f7fa-27b0-11eb-adc1-0242ac120002"
+} 
