@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PDPView: View {
     let plpModel: PLPViewModel
-    @StateObject var task: PDPProductTask = PDPProductTask(url: URL(string: "https://run.mocky.io/v3/9a6331f9-8ed6-453f-bbff-250b431bf141")!)
+    @StateObject var task = FetchTask<PDPProduct>(url: URL(string: "https://run.mocky.io/v3/9a6331f9-8ed6-453f-bbff-250b431bf141")!) "https://run.mocky.io/v3/9a6331f9-8ed6-453f-bbff-250b431bf141")!)
     @StateObject var imageLoader = ImageLoader()
     @State var quantity = 0
     @State var showingCart = false
@@ -21,16 +21,16 @@ struct PDPView: View {
     
     var body: some View {
         List {
-            ImageCarousel(product: task.product)
-            ProductPlacard(product: task.product)
-            ProductDescription(product: task.product)
+            ImageCarousel(product: task.model)
+            ProductPlacard(product: task.model)
+            ProductDescription(product: task.model)
             QuantityPicker(quantity: $quantity)
             ColorSelector()
             SizeSelector()
             AddToCartView(quantity: quantity)
         }
         .onAppear(perform: {
-            self.task.getProducts()
+            self.task.fetchModel()
         })
         .navigationBarTitle(Text(self.plpModel.name), displayMode: .inline)
         .navigationBarItems(trailing:

@@ -22,10 +22,6 @@ class FetchTask<T: Decodable>: ObservableObject {
         self.url = url
     }
     
-    func updateUser() {
-        
-    }
-    
     func fetchModel() {
         guard !finished else { return }
         self.cancellable = URLSession.shared.dataTaskPublisher(for: url)
