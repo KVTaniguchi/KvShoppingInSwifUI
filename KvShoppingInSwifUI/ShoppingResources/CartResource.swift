@@ -13,7 +13,7 @@ final class CartResource: ObservableObject {
     // local cart vs service cart
     // local cart has a time to live
     // once time to live expires it is
-    var cart: CartModel = CartModel()
+//    var cart: CartModel = CartModel(id: "", items: [])
     
     private var fetchedCart: CartModel?
     
