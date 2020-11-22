@@ -18,11 +18,11 @@ final class UserResource: ObservableObject {
     // updated
     
     
-    // not updated, in guest state non-updated
-    let userFetchTaskUnMutated = UserFetchTask(url: URL(string: "https://run.mocky.io/v3/2700ae5c-f55d-4795-8ef8-ec39068871ec")!)
+    // not updated, in guest state non-updated "https://run.mocky.io/v3/2700ae5c-f55d-4795-8ef8-ec39068871ec")!)
+    let userFetchTaskUnmutated = FetchTask<UserModel>(url: URL(string: "https://run.mocky.io/v3/2700ae5c-f55d-4795-8ef8-ec39068871ec")!)
     
-    func load() {
-        userFetchTaskUnMutated.getUser()
+    func onLaunch() {
+        userFetchTaskUnmutated.fetchModel()
     }
 }
 
