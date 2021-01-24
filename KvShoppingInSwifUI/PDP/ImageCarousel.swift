@@ -13,8 +13,13 @@ struct ImageCarousel: View {
     @StateObject var imageLoading = ImageLoader.shared
     
     @State private var isZoomedIn = false
+    @Binding var isZoomed: Bool
     
-    init(product: PDPProduct?) {
+    init(
+        product: PDPProduct?,
+        isZoomed: Binding<Bool>
+    ) {
+        _isZoomed = isZoomed
         self.urls = product?.images
             .sorted(by: { $0.rank < $1.rank })
             .compactMap { $0.value } ?? []

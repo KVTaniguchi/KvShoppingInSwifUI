@@ -14,6 +14,7 @@ struct PDPView: View {
     @StateObject var imageLoader = ImageLoader()
     @State private var quantity = 0
     @State private var showingCart = false
+    @State private var showingZoomedCarousel = false
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel
@@ -21,7 +22,7 @@ struct PDPView: View {
     
     var body: some View {
         List {
-            ImageCarousel(product: task.model)
+            ImageCarousel(product: task.model, isZoomed: $showingZoomedCarousel)
             ProductPlacard(product: task.model)
             ProductDescription(product: task.model)
             QuantityPicker(quantity: $quantity)
