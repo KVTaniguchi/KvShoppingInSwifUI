@@ -14,7 +14,7 @@ struct PDPView: View {
     @StateObject var imageLoader = ImageLoader()
     @State private var quantity = 0
     @State private var showingCart = false
-    @State private var showingZoomedCarousel = false
+    @State private var zoomedCarouselSelector = ZoomedImageSelector(url: nil, isZoomed: false)
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel
@@ -23,15 +23,22 @@ struct PDPView: View {
     var body: some View {
         ZStack {
             listView.zIndex(0)
-            if showingZoomedCarousel {
-                ZoomedImageCarousel().transition(.fly).zIndex(1)
+            if zoomedCarouselSelector.isZoomed {
+                ZoomedImageCarousel(
+                    url: zoomedCarouselSelector.url ?? URL(string: "")!
+                )
+                .transition(.fly)
+                .zIndex(1)
             }
         }
     }
     
     var listView: some View {
         List {
-            ImageCarousel(product: task.model, isZoomed: $showingZoomedCarousel)
+            ImageCarousel(
+                product: task.model,
+                selector: $zoomedCarouselSelector
+            )
             ProductPlacard(product: task.model)
             ProductDescription(product: task.model)
             QuantityPicker(quantity: $quantity)

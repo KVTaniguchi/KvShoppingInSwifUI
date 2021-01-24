@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct ZoomedImageCarousel: View {
+    let url: URL
+    
     var body: some View {
         ZStack {
             Color.blue.edgesIgnoringSafeArea(.all)
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("show \(url)")
         }
-        
     }
 }

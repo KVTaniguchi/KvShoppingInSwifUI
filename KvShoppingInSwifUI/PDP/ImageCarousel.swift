@@ -12,13 +12,13 @@ struct ImageCarousel: View {
     let urls: [URL]
     @StateObject var imageLoading = ImageLoader.shared
     
-    @Binding var isZoomed: Bool
+    @Binding var zoomedSelector: ZoomedImageSelector
     
     init(
         product: PDPProduct?,
-        isZoomed: Binding<Bool>
+        selector: Binding<ZoomedImageSelector>
     ) {
-        _isZoomed = isZoomed
+        _zoomedSelector = selector
         self.urls = product?.images
             .sorted(by: { $0.rank < $1.rank })
             .compactMap { $0.value } ?? []
@@ -33,7 +33,8 @@ struct ImageCarousel: View {
                     .padding()
                     .onTapGesture(perform: {
                         withAnimation {
-                            self.isZoomed.toggle()
+                            self.zoomedSelector.url = url
+                            self.zoomedSelector.isZoomed.toggle()
                         }
                     })
                 }

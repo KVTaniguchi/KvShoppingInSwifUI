@@ -29,6 +29,7 @@
 		BDAAAB3825BD19A700CB39CA /* ZoomIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAB3725BD19A600CB39CA /* ZoomIn.swift */; };
 		BDAAAB3C25BD30E600CB39CA /* ZoomedImageCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAB3B25BD30E600CB39CA /* ZoomedImageCarousel.swift */; };
 		BDAAAB4025BD317700CB39CA /* SlidingDoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAB3F25BD317700CB39CA /* SlidingDoor.swift */; };
+		BDAAAB4525BD412200CB39CA /* ZoomedSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAB4425BD412200CB39CA /* ZoomedSelector.swift */; };
 		BDB4CD7A24D66D370018A141 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB4CD7924D66D370018A141 /* AppMain.swift */; };
 		BDB4CD7E24D66D370018A141 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB4CD7D24D66D370018A141 /* ContentView.swift */; };
 		BDB4CD8024D66D3B0018A141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB4CD7F24D66D3B0018A141 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		BDAAAB3725BD19A600CB39CA /* ZoomIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomIn.swift; sourceTree = "<group>"; };
 		BDAAAB3B25BD30E600CB39CA /* ZoomedImageCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageCarousel.swift; sourceTree = "<group>"; };
 		BDAAAB3F25BD317700CB39CA /* SlidingDoor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingDoor.swift; sourceTree = "<group>"; };
+		BDAAAB4425BD412200CB39CA /* ZoomedSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedSelector.swift; sourceTree = "<group>"; };
 		BDB4CD7624D66D370018A141 /* KvShoppingInSwifUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KvShoppingInSwifUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB4CD7924D66D370018A141 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		BDB4CD7D24D66D370018A141 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		BDA1E2ED24E0DEF9005EB4ED /* PDP */ = {
 			isa = PBXGroup;
 			children = (
+				BDAAAB4325BD410F00CB39CA /* Carousel */,
 				BDB4CDA124D66DA80018A141 /* PDPView.swift */,
 				BDE8CA2625073C72000F21DA /* ImageCarousel.swift */,
 				BDE8CA28250DAB9A000F21DA /* ProductPlacard.swift */,
@@ -202,7 +205,6 @@
 				BDE8CA30250DABCE000F21DA /* AddToCartView.swift */,
 				BDE8CA34250DAECE000F21DA /* PDPProduct.swift */,
 				BD0B08E22517F96300F9B3A9 /* ProductDescription.swift */,
-				BDAAAB3B25BD30E600CB39CA /* ZoomedImageCarousel.swift */,
 			);
 			path = PDP;
 			sourceTree = "<group>";
@@ -253,6 +255,15 @@
 				BDAAAB3F25BD317700CB39CA /* SlidingDoor.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		BDAAAB4325BD410F00CB39CA /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				BDAAAB3B25BD30E600CB39CA /* ZoomedImageCarousel.swift */,
+				BDAAAB4425BD412200CB39CA /* ZoomedSelector.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		BDB4CD6D24D66D370018A141 = {
@@ -444,6 +455,7 @@
 				BD9A14F125459E9600785712 /* SignIn.swift in Sources */,
 				BDE8CA2725073C72000F21DA /* ImageCarousel.swift in Sources */,
 				BDE8CA31250DABCE000F21DA /* AddToCartView.swift in Sources */,
+				BDAAAB4525BD412200CB39CA /* ZoomedSelector.swift in Sources */,
 				BDE8CA2F250DABBA000F21DA /* SizeSelector.swift in Sources */,
 				BDE8CA2B250DABA9000F21DA /* QuantityPicker.swift in Sources */,
 				BD0B08E72519BE8400F9B3A9 /* CartModel.swift in Sources */,
