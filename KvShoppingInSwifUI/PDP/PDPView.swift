@@ -24,6 +24,7 @@ struct PDPView: View {
         ZStack {
             listView.zIndex(0)
             if zoomedCarouselSelector.isZoomed {
+                // init the carosel with all the urls
                 ZoomedImageCarousel(
                     url: zoomedCarouselSelector.url ?? URL(string: "")!
                 )
