@@ -25,6 +25,8 @@
 		BDA1E2F124E0E418005EB4ED /* PLPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA1E2F024E0E418005EB4ED /* PLPViewModel.swift */; };
 		BDA1E2F324E0E5EA005EB4ED /* PLPItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA1E2F224E0E5EA005EB4ED /* PLPItemView.swift */; };
 		BDA1E2F524E0EA4F005EB4ED /* PLPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA1E2F424E0EA4F005EB4ED /* PLPProduct.swift */; };
+		BDAAAB3225BBF9AB00CB39CA /* FlyOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAB3125BBF9AB00CB39CA /* FlyOut.swift */; };
+		BDAAAB3825BD19A700CB39CA /* ZoomIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAAAB3725BD19A600CB39CA /* ZoomIn.swift */; };
 		BDB4CD7A24D66D370018A141 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB4CD7924D66D370018A141 /* AppMain.swift */; };
 		BDB4CD7E24D66D370018A141 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB4CD7D24D66D370018A141 /* ContentView.swift */; };
 		BDB4CD8024D66D3B0018A141 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB4CD7F24D66D3B0018A141 /* Assets.xcassets */; };
@@ -75,6 +77,8 @@
 		BDA1E2F024E0E418005EB4ED /* PLPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPViewModel.swift; sourceTree = "<group>"; };
 		BDA1E2F224E0E5EA005EB4ED /* PLPItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPItemView.swift; sourceTree = "<group>"; };
 		BDA1E2F424E0EA4F005EB4ED /* PLPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPProduct.swift; sourceTree = "<group>"; };
+		BDAAAB3125BBF9AB00CB39CA /* FlyOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyOut.swift; sourceTree = "<group>"; };
+		BDAAAB3725BD19A600CB39CA /* ZoomIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomIn.swift; sourceTree = "<group>"; };
 		BDB4CD7624D66D370018A141 /* KvShoppingInSwifUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KvShoppingInSwifUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB4CD7924D66D370018A141 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		BDB4CD7D24D66D370018A141 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +240,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		BDAAAB3025BBF9A100CB39CA /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				BDAAAB3125BBF9AB00CB39CA /* FlyOut.swift */,
+				BDAAAB3725BD19A600CB39CA /* ZoomIn.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		BDB4CD6D24D66D370018A141 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +270,7 @@
 		BDB4CD7824D66D370018A141 /* KvShoppingInSwifUI */ = {
 			isa = PBXGroup;
 			children = (
+				BDAAAB3025BBF9A100CB39CA /* Animations */,
 				BD03AF932562280400636DDE /* ShoppingResources */,
 				BD9A14F72545A3FE00785712 /* KvShoppingInSwifUI.entitlements */,
 				BD9A14EF25459E8D00785712 /* SignIn */,
@@ -396,6 +410,7 @@
 			files = (
 				BDB4CD7A24D66D370018A141 /* AppMain.swift in Sources */,
 				BD03AF9B2562282400636DDE /* UserResource.swift in Sources */,
+				BDAAAB3825BD19A700CB39CA /* ZoomIn.swift in Sources */,
 				BDA1E2F324E0E5EA005EB4ED /* PLPItemView.swift in Sources */,
 				BDA1E2F524E0EA4F005EB4ED /* PLPProduct.swift in Sources */,
 				BD1B1CB6256AA4E2001748D1 /* Task.swift in Sources */,
@@ -404,6 +419,7 @@
 				BDE8CA35250DAECE000F21DA /* PDPProduct.swift in Sources */,
 				BD527718251B02D5002CE217 /* AsyncImage.swift in Sources */,
 				BDE8CA2D250DABB2000F21DA /* ColorSelector.swift in Sources */,
+				BDAAAB3225BBF9AB00CB39CA /* FlyOut.swift in Sources */,
 				BD03AF852562204900636DDE /* User.swift in Sources */,
 				BDA1E2F124E0E418005EB4ED /* PLPViewModel.swift in Sources */,
 				BDB4CD7E24D66D370018A141 /* ContentView.swift in Sources */,

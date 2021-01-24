@@ -20,25 +20,31 @@ struct PLPView: View {
     @State var showingCart = false
     
     var body: some View {
-        List(task.productViewModels) { product in
-            NavigationLink(destination: PDPView(plpModel: product)) {
-                PLPItemView(plpVM: product)
-            }
-        }
-        .onAppear(perform: {
-            self.task.getProducts()
-        })
-        .navigationBarTitle("products list")
-        .navigationBarItems(trailing:
-            Button(
-                action: {
-                    self.showingCart.toggle()
-                }) {
-                    Image(systemName: "cart").imageScale(.large)
+        switch task.result {
+        case .success(let models):
+            List(models) { product in
+                NavigationLink(destination: PDPView(plpModel: product)) {
+                    PLPItemView(plpVM: product)
                 }
-        )
-        .sheet(isPresented: $showingCart) {
-            CartView()
+            }
+            .navigationBarTitle("products list")
+            .navigationBarItems(trailing:
+                Button(
+                    action: {
+                        self.showingCart.toggle()
+                    }) {
+                        Image(systemName: "cart").imageScale(.large)
+                    }
+            )
+            .sheet(isPresented: $showingCart) {
+                CartView()
+            }
+        case .failure(let error):
+            Text(error.localizedDescription)
+        case .none:
+            ProgressView().onAppear(perform: {
+                self.task.getProducts()
+            })
         }
     }
 }

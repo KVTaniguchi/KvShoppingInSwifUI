@@ -23,9 +23,8 @@ class PLPProductsTask: ObservableObject {
         return numberFormatter
     }()
     
-    @Published var productViewModels: [PLPViewModel] = []
-    @Published var error: Error?
     @Published var finished = false
+    @Published var result: Result<[PLPViewModel], Error>?
     
     init(url: URL) {
         self.url = url
@@ -49,10 +48,10 @@ class PLPProductsTask: ObservableObject {
             case .finished:
                 break
             case .failure(let error):
-                self?.error = error
+                self?.result = .failure(error)
             }
         }, receiveValue: { [weak self] products in
-            self?.productViewModels = products.map { product in
+            let productViewModels: [PLPViewModel] = products.map { product in
                 let listingRaw = Decimal(integerLiteral: product.listingPrice) / 100
                 let listingPriceString = PLPProductsTask.formatter.string(from:
                     NSDecimalNumber(decimal: listingRaw))
@@ -71,6 +70,7 @@ class PLPProductsTask: ObservableObject {
                     shortPromoMessage: product.promoMessage
                 )
             }
+            self?.result = .success(productViewModels)
         })
     }
 }

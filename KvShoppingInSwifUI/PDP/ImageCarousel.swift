@@ -10,7 +10,9 @@ import SwiftUI
 
 struct ImageCarousel: View {
     let urls: [URL]
-    let imageLoading = ImageLoader()
+    @StateObject var imageLoading = ImageLoader.shared
+    
+    @State private var isZoomedIn = false
     
     init(product: PDPProduct?) {
         self.urls = product?.images
@@ -25,6 +27,11 @@ struct ImageCarousel: View {
                     AsyncImage(url: url)
                     .frame(width: 80, height: 120, alignment: .leading)
                     .padding()
+                        .onTapGesture(perform: {
+                            self.isZoomedIn.toggle()
+                        })
+                    // on select, custom transition for the
+                    // image expanding out to fill the entire screen
                 }
             }
         }
