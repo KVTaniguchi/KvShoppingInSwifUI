@@ -12,7 +12,6 @@ struct ImageCarousel: View {
     let urls: [URL]
     @StateObject var imageLoading = ImageLoader.shared
     
-    @State private var isZoomedIn = false
     @Binding var isZoomed: Bool
     
     init(
@@ -32,11 +31,11 @@ struct ImageCarousel: View {
                     AsyncImage(url: url)
                     .frame(width: 80, height: 120, alignment: .leading)
                     .padding()
-                        .onTapGesture(perform: {
-                            self.isZoomedIn.toggle()
-                        })
-                    // on select, custom transition for the
-                    // image expanding out to fill the entire screen
+                    .onTapGesture(perform: {
+                        withAnimation {
+                            self.isZoomed.toggle()
+                        }
+                    })
                 }
             }
         }

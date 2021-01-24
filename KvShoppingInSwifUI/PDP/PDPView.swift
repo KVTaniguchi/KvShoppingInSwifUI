@@ -21,6 +21,15 @@ struct PDPView: View {
     }
     
     var body: some View {
+        ZStack {
+            listView.zIndex(0)
+            if showingZoomedCarousel {
+                ZoomedImageCarousel().transition(.fly).zIndex(1)
+            }
+        }
+    }
+    
+    var listView: some View {
         List {
             ImageCarousel(product: task.model, isZoomed: $showingZoomedCarousel)
             ProductPlacard(product: task.model)

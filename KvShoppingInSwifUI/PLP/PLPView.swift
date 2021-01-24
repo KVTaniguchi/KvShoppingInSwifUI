@@ -43,7 +43,9 @@ struct PLPView: View {
             Text(error.localizedDescription)
         case .none:
             ProgressView().onAppear(perform: {
-                self.task.getProducts()
+                withAnimation {
+                    self.task.getProducts()
+                }
             })
         }
     }
