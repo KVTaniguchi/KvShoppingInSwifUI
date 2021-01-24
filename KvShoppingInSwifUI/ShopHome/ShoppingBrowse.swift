@@ -13,7 +13,7 @@ import SwiftUI
 // clicking any loads the plp with the same data
 
 struct ShoppingBrowse: View {
-    @State var showingCart = false
+    @State private var showingCart = false
     
     var body: some View {
         NavigationView {

@@ -11,8 +11,8 @@ import Contacts
 
 struct Account: View {
     
-    @State var email: String
-    @State var address: CNPostalAddress
+    @State private var email: String
+    @State private var address: CNPostalAddress
     
     init() {
         _email = State(initialValue: "")

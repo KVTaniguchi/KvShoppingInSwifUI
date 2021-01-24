@@ -12,8 +12,8 @@ struct PDPView: View {
     let plpModel: PLPViewModel
     @StateObject var task = FetchTask<PDPProduct>(url: URL(string: "https://run.mocky.io/v3/9a6331f9-8ed6-453f-bbff-250b431bf141")!)
     @StateObject var imageLoader = ImageLoader()
-    @State var quantity = 0
-    @State var showingCart = false
+    @State private var quantity = 0
+    @State private var showingCart = false
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel

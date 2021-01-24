@@ -12,7 +12,7 @@ import SwiftUI
 // a summary section with cart total
 
 struct CartView: View {
-    @State var showingCheckout = false
+    @State private var showingCheckout = false
     
     var body: some View {
         List {
