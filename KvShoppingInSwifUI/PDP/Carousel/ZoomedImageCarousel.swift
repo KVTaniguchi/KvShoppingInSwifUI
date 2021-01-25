@@ -10,6 +10,24 @@ import SwiftUI
 
 struct ZoomedImageCarousel: View {
     @Binding var zoomedImageSelector: ZoomedImageSelector
+    private let urls: [URL]
+    
+    @State private var currentPage = 0
+    
+    init(
+        product: PDPProduct?,
+        selector: Binding<ZoomedImageSelector>
+    ) {
+        _zoomedImageSelector = selector
+        self.urls = product?.images
+            .sorted(by: { $0.rank < $1.rank })
+            .compactMap { $0.value } ?? []
+        
+        if let url = selector.url.wrappedValue,
+           let index = urls.firstIndex(where:  { $0 == url } ) {
+            currentPage = index
+        }
+    }
     
     var body: some View {
         VStack {
@@ -17,14 +35,14 @@ struct ZoomedImageCarousel: View {
             ZStack(alignment: .top) {
                 if let url = zoomedImageSelector.url {
                     Color.white
-                    AsyncImage(url: url)
-                    .edgesIgnoringSafeArea(.all)
-                    .padding()
-                    .onTapGesture(perform: {
-                        withAnimation {
-                            self.zoomedImageSelector.isZoomed.toggle()
+                    PagerView(
+                        pageCount: urls.count,
+                        currentIndex: $currentPage
+                    ) {
+                        ForEach(urls, id: \.self) { url in
+                            carouselImage(url: url)
                         }
-                    })
+                    }
                 }
             }
             // paging indicator
@@ -32,7 +50,19 @@ struct ZoomedImageCarousel: View {
                 withAnimation {
                     self.zoomedImageSelector.isZoomed.toggle()
                 }
-            }.offset(x: -5, y: -5)
+            }.offset(y: -20)
         }
+    }
+    
+    // todo get the selected image first
+    private func carouselImage(url: URL) -> some View {
+        AsyncImage(url: url)
+        .edgesIgnoringSafeArea(.all)
+        .padding()
+        .onTapGesture(perform: {
+            withAnimation {
+                self.zoomedImageSelector.isZoomed.toggle()
+            }
+        })
     }
 }

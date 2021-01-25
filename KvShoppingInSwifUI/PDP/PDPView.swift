@@ -26,7 +26,8 @@ struct PDPView: View {
             if zoomedImageSelector.isZoomed {
                 // init the carosel with all the urls
                 ZoomedImageCarousel(
-                    zoomedImageSelector: $zoomedImageSelector
+                    product: task.model,
+                    selector: $zoomedImageSelector
                 )
                 .transition(.fly)
                 .zIndex(1)
