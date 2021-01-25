@@ -9,12 +9,30 @@
 import SwiftUI
 
 struct ZoomedImageCarousel: View {
-    let url: URL
+    @Binding var zoomedImageSelector: ZoomedImageSelector
     
     var body: some View {
-        ZStack {
-            Color.blue.edgesIgnoringSafeArea(.all)
-            Text("show \(url)")
+        VStack {
+            // create a paged horizontal side scrolling view
+            ZStack(alignment: .top) {
+                if let url = zoomedImageSelector.url {
+                    Color.white
+                    AsyncImage(url: url)
+                    .edgesIgnoringSafeArea(.all)
+                    .padding()
+                    .onTapGesture(perform: {
+                        withAnimation {
+                            self.zoomedImageSelector.isZoomed.toggle()
+                        }
+                    })
+                }
+            }
+            // paging indicator
+            Button("Close") {
+                withAnimation {
+                    self.zoomedImageSelector.isZoomed.toggle()
+                }
+            }.offset(x: -5, y: -5)
         }
     }
 }
