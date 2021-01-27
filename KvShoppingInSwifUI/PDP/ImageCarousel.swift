@@ -37,6 +37,7 @@ struct ImageCarousel: View {
                         .onTapGesture(perform: {
                             self.zoomedSelector.urls = self.urls
                             self.zoomedSelector.scrollView = scrollView
+                            self.zoomedSelector.setCurrentIndex(for: url, from: self.urls)
                             withAnimation {
                                 self.zoomedSelector.isZoomed.toggle()
                             }
