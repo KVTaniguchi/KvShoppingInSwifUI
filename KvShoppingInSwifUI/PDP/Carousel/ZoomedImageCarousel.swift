@@ -12,7 +12,7 @@ struct ZoomedImageCarousel: View {
     @Binding var zoomedImageSelector: ZoomedImageSelector
     private let urls: [URL]
     
-    @State private var currentPage = 0
+    @State private var currentPage: Int
     
     init(
         product: PDPProduct?,
@@ -25,7 +25,9 @@ struct ZoomedImageCarousel: View {
         
         if let url = selector.url.wrappedValue,
            let index = urls.firstIndex(where:  { $0 == url } ) {
-            currentPage = index
+            _currentPage = State(initialValue: index)
+        } else {
+            _currentPage = State(initialValue: 0)
         }
     }
     
@@ -33,15 +35,13 @@ struct ZoomedImageCarousel: View {
         VStack {
             // create a paged horizontal side scrolling view
             ZStack(alignment: .top) {
-                if let url = zoomedImageSelector.url {
-                    Color.white
-                    PagerView(
-                        pageCount: urls.count,
-                        currentIndex: $currentPage
-                    ) {
-                        ForEach(urls, id: \.self) { url in
-                            carouselImage(url: url)
-                        }
+                Color.white
+                PagerView(
+                    pageCount: urls.count,
+                    currentIndex: $currentPage
+                ) {
+                    ForEach(urls, id: \.self) { url in
+                        carouselImage(url: url)
                     }
                 }
             }

@@ -15,7 +15,7 @@ struct PagerView<Content: View>: View {
 
     init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
         self.pageCount = pageCount
-        self._currentIndex = currentIndex
+        _currentIndex = currentIndex
         self.content = content()
     }
     
