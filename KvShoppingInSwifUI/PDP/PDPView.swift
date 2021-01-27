@@ -14,7 +14,7 @@ struct PDPView: View {
     @StateObject var imageLoader = ImageLoader()
     @State private var quantity = 0
     @State private var showingCart = false
-    @State private var zoomedImageSelector = ZoomedImageSelector(url: nil, isZoomed: false)
+    @State private var zoomedImageSelector = ZoomedImageSelector()
     
     init(plpModel: PLPViewModel) {
         self.plpModel = plpModel

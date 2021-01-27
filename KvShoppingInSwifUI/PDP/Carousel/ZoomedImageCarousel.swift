@@ -12,8 +12,6 @@ struct ZoomedImageCarousel: View {
     @Binding var zoomedImageSelector: ZoomedImageSelector
     private let urls: [URL]
     
-    @State private var currentPage: Int
-    
     init(
         product: PDPProduct?,
         selector: Binding<ZoomedImageSelector>
@@ -22,13 +20,6 @@ struct ZoomedImageCarousel: View {
         self.urls = product?.images
             .sorted(by: { $0.rank < $1.rank })
             .compactMap { $0.value } ?? []
-        
-        if let url = selector.url.wrappedValue,
-           let index = urls.firstIndex(where:  { $0 == url } ) {
-            _currentPage = State(initialValue: index)
-        } else {
-            _currentPage = State(initialValue: 0)
-        }
     }
     
     var body: some View {
@@ -38,7 +29,7 @@ struct ZoomedImageCarousel: View {
                 Color.white
                 PagerView(
                     pageCount: urls.count,
-                    currentIndex: $currentPage
+                    currentIndex: $zoomedImageSelector.currentIndex
                 ) {
                     ForEach(urls, id: \.self) { url in
                         carouselImage(url: url)

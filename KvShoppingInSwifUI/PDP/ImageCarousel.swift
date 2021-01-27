@@ -19,24 +19,29 @@ struct ImageCarousel: View {
         selector: Binding<ZoomedImageSelector>
     ) {
         _zoomedSelector = selector
-        self.urls = product?.images
+        let urls = product?.images
             .sorted(by: { $0.rank < $1.rank })
             .compactMap { $0.value } ?? []
+        self.urls = urls
     }
     
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack(spacing: 10) {
-                ForEach(urls, id: \.self) { url in
-                    AsyncImage(url: url)
-                    .frame(width: 80, height: 120, alignment: .leading)
-                    .padding()
-                    .onTapGesture(perform: {
-                        withAnimation {
-                            self.zoomedSelector.url = url
-                            self.zoomedSelector.isZoomed.toggle()
-                        }
-                    })
+        ScrollViewReader { scrollView in
+            ScrollView(.horizontal) {
+                HStack(spacing: 10) {
+                    ForEach(urls, id: \.self) { url in
+                        AsyncImage(url: url)
+                        .id(url)
+                        .frame(width: 80, height: 120, alignment: .leading)
+                        .padding()
+                        .onTapGesture(perform: {
+                            self.zoomedSelector.urls = self.urls
+                            self.zoomedSelector.scrollView = scrollView
+                            withAnimation {
+                                self.zoomedSelector.isZoomed.toggle()
+                            }
+                        })
+                    }
                 }
             }
         }
