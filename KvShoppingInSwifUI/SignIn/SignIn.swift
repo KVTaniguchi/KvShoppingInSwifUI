@@ -45,10 +45,9 @@ class Authorize: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationCon
     }
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        
         if let anchor = anchor {
             return anchor
-        } else if let window = UIApplication.shared.windows.first {
-            return window
         } else {
             return UIWindow()
         }

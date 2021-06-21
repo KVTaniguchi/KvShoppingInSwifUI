@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// my own async image view that loads if cached, or downloads
 struct KVAsyncImage: View {
     private let url: URL
     @State private var opacity: Double = 0

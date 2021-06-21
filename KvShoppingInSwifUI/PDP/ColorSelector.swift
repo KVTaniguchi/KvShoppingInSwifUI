@@ -11,5 +11,6 @@ import SwiftUI
 struct ColorSelector: View {
     var body: some View {
         Text("Color selector")
+        // probably a picker with a horizontal style scroll
     }
 }

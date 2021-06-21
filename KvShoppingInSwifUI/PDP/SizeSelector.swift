@@ -11,5 +11,6 @@ import SwiftUI
 struct SizeSelector: View {
     var body: some View {
         Text("Size selector")
+        // probably a picker with a vertical style like the quantity selector
     }
 }
