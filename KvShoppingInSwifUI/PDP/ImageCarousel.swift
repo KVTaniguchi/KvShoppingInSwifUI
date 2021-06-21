@@ -30,7 +30,7 @@ struct ImageCarousel: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
                     ForEach(urls, id: \.self) { url in
-                        AsyncImage(url: url)
+                        KVAsyncImage(url: url)
                         .id(url)
                         .frame(width: 80, height: 120, alignment: .leading)
                         .padding()

@@ -47,7 +47,7 @@ struct ZoomedImageCarousel: View {
     
     // todo get the selected image first
     private func carouselImage(url: URL) -> some View {
-        AsyncImage(url: url)
+        KVAsyncImage(url: url)
         .edgesIgnoringSafeArea(.all)
         .padding()
         .onTapGesture(perform: {

@@ -13,7 +13,7 @@ struct PLPItemView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            AsyncImage(url: plpVM.imageUrl)
+            KVAsyncImage(url: plpVM.imageUrl)
             .frame(width: 80, height: 120, alignment: .leading)
             .padding()
             VStack(alignment: .leading) {

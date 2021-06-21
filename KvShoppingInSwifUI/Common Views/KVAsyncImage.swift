@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AsyncImage: View {
+struct KVAsyncImage: View {
     private let url: URL
     @State private var opacity: Double = 0
     @StateObject var loader = ImageLoader.shared
