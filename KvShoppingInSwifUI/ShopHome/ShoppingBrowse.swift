@@ -16,9 +16,7 @@ struct ShoppingBrowse: View {
     var body: some View {
         NavigationView {
             List {
-                Button {
-                    self.isSearching.toggle()
-                } label: {
+                NavigationLink(destination: SearchView()) {
                     HStack {
                         Image(systemName: "magnifyingglass.circle.fill")
                         Text("Search")
@@ -45,9 +43,6 @@ struct ShoppingBrowse: View {
             )
             .sheet(isPresented: $showingCart) {
                 CartView()
-            }
-            .sheet(isPresented: $isSearching) {
-                SearchView()
             }
         }
     }
