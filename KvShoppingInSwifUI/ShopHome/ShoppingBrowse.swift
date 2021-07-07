@@ -8,19 +8,21 @@
 
 import SwiftUI
 
-// grid of random image views
-// of random size
-// clicking any loads the plp with the same data
-
 struct ShoppingBrowse: View {
     @State private var showingCart = false
     @State private var isSearching = false
+    @State private var searchTitle = "Search"
     
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: SearchView(), isActive: $isSearching) {
-                    Text("Search")
+                Button {
+                    self.isSearching.toggle()
+                } label: {
+                    HStack {
+                        Image(systemName: "magnifyingglass.circle.fill")
+                        Text("Search")
+                    }
                 }
                 NavigationLink(
                     destination: PLPView()
@@ -44,6 +46,9 @@ struct ShoppingBrowse: View {
             .sheet(isPresented: $showingCart) {
                 CartView()
             }
+            .sheet(isPresented: $isSearching) {
+                SearchView()
+            }
         }
     }
 }
@@ -62,8 +67,8 @@ struct SearchBar: View {
     var body: some View {
         NavigationView {
             Text("Searching for \(searchText)")
-                .searchable(text: $searchText)
-                .navigationTitle("Searchable Example")
+            .searchable(text: $searchText)
+            .navigationTitle("Searchable Example")
         }
     }
 }
