@@ -14,10 +14,14 @@ import SwiftUI
 
 struct ShoppingBrowse: View {
     @State private var showingCart = false
+    @State private var isSearching = false
     
     var body: some View {
         NavigationView {
             List {
+                NavigationLink(destination: SearchView(), isActive: $isSearching) {
+                    Text("Search")
+                }
                 NavigationLink(
                     destination: PLPView()
                 ) {
@@ -40,6 +44,26 @@ struct ShoppingBrowse: View {
             .sheet(isPresented: $showingCart) {
                 CartView()
             }
+        }
+    }
+}
+
+struct SearchView: View {
+    var body: some View {
+        VStack {
+            SearchBar()
+        }
+    }
+}
+
+struct SearchBar: View {
+    @State private var searchText = ""
+
+    var body: some View {
+        NavigationView {
+            Text("Searching for \(searchText)")
+                .searchable(text: $searchText)
+                .navigationTitle("Searchable Example")
         }
     }
 }
